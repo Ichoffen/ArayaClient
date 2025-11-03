@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPT Desktop Portable</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <nav class="nav-group">
+      <button id="newChat" class="nav-item">🆕 Новый чат</button>
+      <button id="searchBtn" class="nav-item" disabled>🔎 Поиск в чатах</button>
+      <button id="libraryBtn" class="nav-item" disabled>📚 Библиотека</button>
+    </nav>
+
+    <div class="nav-section">
+      <div class="nav-title">GPT</div>
+      <div class="nav-muted">Обзор (скоро)</div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title">Проекты</div>
+      <div id="projects"></div>
+      <form id="newProjectForm" class="new-project">
+        <input id="newProjectName" placeholder="Новый проект..." />
+        <button type="submit">+</button>
+      </form>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-title">История</div>
+      <div id="history"></div>
+    </div>
+
+    <button id="openSettings" class="settings-btn">⚙️ Настройки</button>
+  </aside>
+
+  <section class="chat">
+    <header class="chat-header">
+      <div class="left">
+        <label>Показывать</label>
+        <select id="lastCount"><option>20</option><option selected>50</option><option>100</option></select>
+        <span>последних</span>
+        <button id="loadOlder">Загрузить старые</button>
+      </div>
+      <div class="right">
+        <button id="micBtn" title="Голосовой ввод">🎤 <span id="micState">OFF</span></button>
+        <input type="file" id="fileInput" accept="image/*" style="display:none" />
+        <button id="attachBtn">📎 Картинка</button>
+        <select id="model"><option value="gpt-5">gpt-5</option><option value="gpt-4.1">gpt-4.1</option></select>
+      </div>
+    </header>
+    <main id="chat"></main>
+    <footer class="chat-input">
+      <form id="form">
+        <textarea id="input" rows="2" placeholder="Нажми 🎤 и диктуй..."></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+      <div class="hint">Показываем последние N сообщений; «Загрузить старые» подтянет ещё.</div>
+    </footer>
+  </section>
+</div>
+
+<div id="settingsModal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Настройки</h3>
+    <label>OpenAI API Key</label>
+    <input id="apiKeyInput" placeholder="sk-..." />
+    <div class="modal-actions">
+      <button id="saveSettings">Сохранить</button>
+      <button id="closeSettings">Закрыть</button>
+    </div>
+    <p class="note">Ключ хранится локально в gpt_desktop.json на твоём ПК.</p>
+  </div>
+</div>
+
+<script src="renderer.js"></script>
+</body>
+</html>

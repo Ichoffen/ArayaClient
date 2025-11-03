@@ -1,0 +1,40 @@
+:root{
+  --bg:#fff; --text:#111; --muted:#666; --border:#eaeaea;
+  --card:#fafafa; --hover:#f5f7ff; --accent:#2952ff;
+  --radius:12px; --pad:12px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+}
+*{box-sizing:border-box} body{margin:0;font-family:var(--sans); color:var(--text); background:var(--bg)}
+.layout{display:grid;grid-template-columns:280px 1fr;height:100vh}
+.sidebar{border-right:1px solid var(--border);padding:var(--pad);overflow:auto;display:flex;flex-direction:column;gap:14px}
+.nav-group{display:flex;flex-direction:column;gap:6px}
+.nav-section{display:flex;flex-direction:column;gap:6px}
+.nav-title{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.02em;margin-top:4px}
+.nav-item{width:100%;text-align:left;border:1px solid var(--border);border-radius:8px;padding:8px 10px;background:#fff;cursor:pointer}
+.nav-item:hover{background:var(--hover)}
+.nav-muted{color:#9aa;font-size:13px;padding:6px 2px}
+.project{padding:8px;border-radius:8px;cursor:pointer;border:1px solid transparent}
+.project:hover{background:#f8f8ff}
+.project.active{background:#eef2ff;border-color:#dfe6ff}
+.settings-btn{width:100%;margin-top:6px}
+.new-project{display:flex;gap:6px}
+.new-project input{flex:1;padding:6px;border:1px solid var(--border);border-radius:8px}
+.chat{display:flex;flex-direction:column}
+.chat-header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding:8px;gap:8px;background:#fff;position:sticky;top:0}
+.left,.right{display:flex;gap:8px;align-items:center}
+#chat{flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:12px;background:var(--card)}
+.msg{border:1px solid var(--border);border-radius:10px;padding:10px;max-width:80%;background:#fff}
+.msg.user{align-self:flex-end;background:#f6f8ff}
+.msg.assistant{align-self:flex-start;background:#fff}
+.msg .thumb{margin-top:6px;max-width:260px;border-radius:8px;border:1px solid #ddd}
+.chat-input{border-top:1px solid var(--border);padding:8px;background:#fff}
+#form{display:flex;gap:8px}
+#input{flex:1;resize:vertical;padding:8px;border:1px solid var(--border);border-radius:8px}
+button{padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer}
+button:hover{background:#f5f5f5}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center}
+.modal.hidden{display:none}
+.modal-content{background:#fff;border-radius:var(--radius);padding:16px;min-width:360px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+.note{font-size:12px;color:#666;margin-top:8px}
